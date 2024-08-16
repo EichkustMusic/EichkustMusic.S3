@@ -83,5 +83,35 @@ namespace EichkustMusic.S3
 
             return _s3.GetPreSignedURL(getPreSignedUrlRequest);
         }
+
+        public async Task<bool> UploadFileAsync(string bucketName, string localFilePath)
+        {
+            var key = Guid.NewGuid().ToString();
+
+            var PutFileRequest = new PutObjectRequest()
+            {
+                BucketName = bucketName,
+                Key = key,
+                FilePath = localFilePath
+            };
+
+            var response = await _s3.PutObjectAsync(PutFileRequest);
+
+            return response.HttpStatusCode.IsSuccess();
+        }
+
+        public async Task<bool> UploadFileAsync(string bucketName, string localFilePath, string fileName)
+        {
+            var PutFileRequest = new PutObjectRequest()
+            {
+                BucketName = bucketName,
+                Key = fileName,
+                FilePath = localFilePath
+            };
+
+            var response = await _s3.PutObjectAsync(PutFileRequest);
+
+            return response.HttpStatusCode.IsSuccess();
+        }
     }
 }

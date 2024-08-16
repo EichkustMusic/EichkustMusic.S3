@@ -9,12 +9,24 @@
     <Authors>rogulik</Authors>
     <Company>EichkustMusic</Company>
     <Description>S3 service for EichkustMusic</Description>
+    <PackageProjectUrl>https://github.com/EichkustMusic</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/EichkustMusic/EichkustMusic.S3</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.S3" Version="3.7.400.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

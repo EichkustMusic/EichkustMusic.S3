@@ -7,5 +7,9 @@
         public Task<bool> DeleteFileAsync(string fileURL);
 
         public Task<bool> DoesFileExistAsync(string fileURL);
+
+        public Task<bool> UploadFileAsync(string bucketName, string localFilePath);
+
+        public Task<bool> UploadFileAsync(string bucketName, string localFilePath, string fileName);
     }
 }
